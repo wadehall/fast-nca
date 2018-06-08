@@ -35,7 +35,8 @@ nca_sklearn = Pipeline([('scaler', StandardScaler()),
                                                    store_opt_result=True))])
 pca = PCA()
 
-fast_nca =  make_pipeline(StandardScaler(), NCA(dim=2))
+fast_nca =  make_pipeline(StandardScaler(), NCA(dim=2))  #note that NCA here
+#  is modified to use PCA as initialisation
 
 # Use a nearest neighbor classifier to evaluate the methods
 knn = KNeighborsClassifier(n_neighbors=n_neighbors)
