@@ -12,7 +12,7 @@ from nca import NCA
 
 print(__doc__)
 
-n_neighbors = 3
+n_neighbors = 1
 random_state = 0
 
 # Load Digits dataset
