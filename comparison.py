@@ -30,12 +30,12 @@ n_classes = len(np.unique(y))
 # Reduce dimension to 2 with NeighborhoodComponentAnalysis
 nca_sklearn = Pipeline([('scaler', StandardScaler()),
                         ('nca', NeighborhoodComponentsAnalysis(
-                            n_features_out=2,
+                                                   n_features_out=2,
                                                    random_state=random_state,
                                                    store_opt_result=True))])
+pca = PCA()
 
-fast_nca =  make_pipeline(StandardScaler(),
-                    NCA(dim=2))
+fast_nca =  make_pipeline(StandardScaler(), NCA(dim=2))
 
 # Use a nearest neighbor classifier to evaluate the methods
 knn = KNeighborsClassifier(n_neighbors=n_neighbors)

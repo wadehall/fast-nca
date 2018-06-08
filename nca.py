@@ -13,6 +13,7 @@ from sklearn.base import (
     BaseEstimator,
     TransformerMixin,
 )
+from sklearn.decomposition import PCA
 
 from sklearn.preprocessing import (
     StandardScaler,
@@ -142,8 +143,9 @@ class NCA(BaseEstimator, TransformerMixin):
 
         if self.K is None:
             self.K = D
-
-        self.A = np.random.randn(self.K, D) / np.sqrt(N)
+        pca = PCA(n_components=self.K).fit(X)
+        self.A = pca.components_
+        # self.A = np.random.randn(self.K, D) / np.sqrt(N)
 
         X = self.standard_scaler.fit_transform(X)
         return self._fit(X, y)
