@@ -42,7 +42,9 @@ fast_nca =  make_pipeline(StandardScaler(), NCA(dim=2))  #note that NCA here
 knn = KNeighborsClassifier(n_neighbors=n_neighbors)
 
 # Make a list of the methods to be compared
-dim_reduction_methods = [('fast_nca', fast_nca), ('nca_sklearn', nca_sklearn)]
+dim_reduction_methods = [('pca', pca), ('fast_nca', fast_nca),
+                                                  ('nca_sklearn',
+                                                      nca_sklearn)]
 
 # plt.figure()
 for i, (name, model) in enumerate(dim_reduction_methods):
