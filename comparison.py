@@ -33,7 +33,7 @@ nca_sklearn = Pipeline([('scaler', StandardScaler()),
                                                    n_features_out=2,
                                                    random_state=random_state,
                                                    store_opt_result=True))])
-pca = PCA()
+pca = PCA(n_components=2, random_state=random_state)
 
 fast_nca =  make_pipeline(StandardScaler(), NCA(dim=2))  #note that NCA here
 #  is modified to use PCA as initialisation
